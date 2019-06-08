@@ -8,7 +8,7 @@ try {
 	(function($) {
 		//제이쿼리가 함수일 때
 		if(typeof $ === 'function') {
-			var _toString = Object.prototype.toString;
+			var _$isArray = $.isArray;
 
 			/**
 			 * @name download
@@ -20,12 +20,12 @@ try {
 				var result = this;
 				
 				//배열일 때
-				if(_toString.call(attributes) === '[object Array]') {
+				if(_$isArray(attributes)) {
 					var attributesLength = attributes.length;
 
 					this.each(function(index, element) {
 						var $element = $(element);
-
+						
 						for(var i = 0; i < attributesLength; i++) {
 							var attribute = $element.attr(attributes[i]);
 							
